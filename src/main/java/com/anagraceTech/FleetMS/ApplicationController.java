@@ -8,9 +8,15 @@ public class ApplicationController {
 
 	
 	
-	@RequestMapping("/index")
+	@RequestMapping("/layout")
 	public String getIndexPage() {
-		
-		return "index";
+
+		return "_layout";
+	}
+
+	@RequestMapping("/index")
+	public String getlayout() {
+
+		return "index2";
 	}
 }
