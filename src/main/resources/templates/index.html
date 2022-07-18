@@ -43,7 +43,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="/index" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">NiceAdmin</span>
       </a>
@@ -342,10 +342,10 @@
 
       <!-- === Help Desk === -->
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link collapsed" data-bs-target="#helpdesk-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-gem"></i><span>Help Desk</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <ul id="helpdesk-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="/helpdesk">
               <i class="bi bi-circle"></i><span>Help Desk Home</span>
@@ -357,13 +357,45 @@
  
        <!-- === Settings === -->     
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-gem"></i><span>Settings</span><i class="bi bi-chevron-down ms-auto"></i>
+        <a class="nav-link collapsed" data-bs-target="#settings-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-gem"></i><span>Parameters</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <ul id="settings-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="/parameters">
-              <i class="bi bi-circle"></i><span>Settings Home</span>
+              <i class="bi bi-circle"></i><span>Parameters Home</span>
+            </a>
+          </li>
+
+        </ul>
+      </li><!-- End Icons Nav -->
+      
+      
+      
+      <!-- === Report === -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#reports-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-gem"></i><span>Report</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="reports-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="/reports">
+              <i class="bi bi-circle"></i><span>Report Home</span>
+            </a>
+          </li>
+ 
+        </ul>
+      </li><!-- End Icons Nav -->
+ 
+       <!-- === Security === -->     
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#security-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-gem"></i><span>Security</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="security-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="/security">
+              <i class="bi bi-circle"></i><span>Security Home</span>
             </a>
           </li>
 
@@ -382,7 +414,7 @@
       <h1>Dashboard</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="/index"><i class="bi bi-house-door"></i></a></li>
           <li class="breadcrumb-item active">Dashboard</li>
         </ol>
       </nav>

@@ -9,18 +9,18 @@
 	<div layout:fragment="content">
 	
 		<div class="pagetitle">
-	      <h1><b>Countries</b></h1>
+	      <h1><b>States</b></h1>
 	      <nav>
 	        <ol class="breadcrumb">
 	          <li class="breadcrumb-item"><a href="/index"><i class="bi bi-house-door"></i></a></li>
 	          <li class="breadcrumb-item"><a href="/parameters">Parameters</a></li>
-	          <li class="breadcrumb-item active">Countries</li>
+	          <li class="breadcrumb-item active">States</li>
 	        </ol>
 	      </nav>
 	    </div><!-- End Page Title -->
 		
 		    <div class="pagetitle">
-               <a href="/countryAdd" type="submit" class="btn btn-primary">Add Country</a>
+               <a href="/parameters/stateAdd" type="submit" class="btn btn-primary">Add State</a>
             </div>
         
        <section class="section dashboard">
@@ -31,40 +31,38 @@
 
 				<div class="card-body pb-0">
 					<h5 class="card-title">
-						List of Countries
+						List of States 
 					</h5>
 
 					<table class="table table-borderless">
 						<thead>
 							<tr>
-								<th scope="col">Description</th>
+								<th scope="col">Name</th>
 								<th scope="col">Capital</th>
 								<th scope="col">Code</th>
-								<th scope="col">Nationality</th>
-								<th scope="col">Continent</th>
+								<th scope="col">Details</th>
 								<th scope="col">Action</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr th:each="country: ${countries}">
-								<td th:text="${country.description}"></td>
-								<td th:text="${country.capital}"></td>
-								<td th:text="${country.code}"></td>
-								<td th:text="${country.nationality}"></td>
-								<td th:text="${country.continent}"></td>
+							<tr th:each="state: ${states}">
+								<td th:text="${state.name}"></td>
+								<td th:text="${state.capital}"></td>
+								<td th:text="${state.code}"></td>
+								<td th:text="${state.details}"></td>
 								<td>
 									<a type="button" class="btn-sm btn-primary"
-										th:href="@{'/countryDetails/'+${country.id}}">
+										th:href="@{'/parameters/state/Details/'+${state.id}}">
 										<i class="bx bxs-low-vision"></i>
 									</a>
 									
 									<a type="button" class="btn-sm btn-success"
-										th:href="@{'/parameters/country/Edit/'+${country.id}}">
+										th:href="@{'/parameters/state/Edit/'+${state.id}}">
 										<i class="bx bxs-edit"></i>
 									</a>
 									<a type="button" class="btn-sm btn-danger"
 										onclick="return confirm('Are you sure you want to delete this record?')"
-										th:href="@{'/countries/delete/'+${country.id}}">
+										th:href="@{'/parameters/state/delete/'+${state.id}}">
 										<i class="bx bxs-trash"></i>
 									</a>
 								</td>

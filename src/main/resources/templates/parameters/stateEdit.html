@@ -10,12 +10,12 @@
 	<div layout:fragment="content">
 	
 	<div class="pagetitle">
-	      <h1>Edit Country</h1>
+	      <h1>Edit States</h1>
 	      <nav>
 	        <ol class="breadcrumb">
 	          <li class="breadcrumb-item"><a href="/index"><i class="bi bi-house-door"></i></a></li>
 	          <li class="breadcrumb-item"><a href="/parameters">Parameters</a></li>
-	          <li class="breadcrumb-item"><a href="/countries">Countries</a></li>
+	          <li class="breadcrumb-item"><a href="/parameters/states">states</a></li>
 	          <li class="breadcrumb-item active">Edit</li>
 	        </ol>
 	      </nav>
@@ -32,37 +32,48 @@
             <div class="card-body">
 
               <!-- Vertical Form -->
-              <form class="row g-3" th:action="@{/countries}" th:object="${country}" method="post">
+              <form class="row g-3" th:action="@{/parameters/states}" th:object="${state}" method="post">
               	
-              	<h5 class="card-title ">Edit Country Record</h5>
+              	<h5 class="card-title ">Edit State Record</h5>
               	
               	
                   <input type="hidden" th:field="*{id}"/>
+                  
+                <div class="col-12">
+              	
+                <div class="col-md-4">
+                  <label for="description" class="form-label">Country:</label>
+                  <select id="ddlCountryAdd" name="countryid" class="form-select">
+                    <option selected>Choose...</option>
+                    <option th:each="country : ${countries}"
+                    		th:value="${country.id}"
+                    		th:selected="${country.id}==${state.countryid} ? True: False"
+                    		th:text="${country.description}">
+                    </option>
+                  </select>
+                </div>
+                </div>
                 
      
                 <div class="col-12">
-                  <label for="description" class="form-label">Country Name</label>
-                  <input type="text" class="form-control" th:field="*{description}" />
+                  <label for="description" class="form-label">Name</label>
+                  <input type="text" class="form-control" th:field="*{name}" />
                 </div>
                 <div class="col-12">
                   <label for="capital" class="form-label">Capital</label>
                   <input type="text" class="form-control" th:field="*{capital}" />
                 </div>
                 <div class="col-12">
-                  <label for="nationality" class="form-label">Nationality</label>
-                  <input type="text" class="form-control"  th:field="*{nationality}"/>
-                </div>
-                <div class="col-12">
                   <label for="code" class="form-label">Code</label>
                   <input type="text" class="form-control" th:field="*{code}"/>
                 </div>
                 <div class="col-12">
-                  <label for="continent" class="form-label">Continent</label>
-                  <input type="text" class="form-control"  th:field="*{continent}"/>
+                  <label for="continent" class="form-label">Details</label>
+                  <input type="text" class="form-control"  th:field="*{details}"/>
                 </div>
                 <div class="text-center">
                   <button type="submit" class="btn btn-success">Save</button>
-                  <a href="/countries" class="btn btn-warning">Exit</a>
+                  <a href="/parameters/states" class="btn btn-warning">Exit</a>
                 </div>
               </form><!-- Vertical Form -->
 
