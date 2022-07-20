@@ -63,9 +63,9 @@ public class ContactController {
 		return "redirect:/parameters/contacts";
 	}
 
-	// Go to Edit page
+	// Go to Edit/Details page
 	@GetMapping("/parameters/contact/{op}/{id}")
-	public String edit(@PathVariable Integer id,@PathVariable String op, Model model) {
+	public String editAndDetails(@PathVariable Integer id,@PathVariable String op, Model model) {
 		Contact contact = contactService.getById(id);
 
 		model.addAttribute("contact", contact);
