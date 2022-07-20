@@ -73,7 +73,7 @@ public class StateController {
 		return "redirect:/parameters/states";
 	}
 	
-	//Go to Edit page
+	//Go to Edit/Detail page
 	@GetMapping("/parameters/state/{op}/{id}")
 	public String editState(@PathVariable Integer id, @PathVariable String op, Model model) {
 		addModelAttribute(model);

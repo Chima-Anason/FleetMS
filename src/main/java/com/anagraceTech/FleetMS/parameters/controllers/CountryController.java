@@ -22,7 +22,7 @@ public class CountryController {
 	private CountryService countryService;
 
 	// Fetch all countries
-	@GetMapping("/countries")
+	@GetMapping("/parameters/countries")
 	public String getAll(Model model) {
 
 		List<Country> countries = countryService.getAll();
@@ -40,47 +40,38 @@ public class CountryController {
 	}
 
 	// Go to Add page
-	@GetMapping("/countryAdd")
+	@GetMapping("/parameters/countryAdd")
 	public String addCountry() {
 
 		return "parameters/countryAdd";
 	}
 
 	// Save
-	@PostMapping("/countries")
+	@PostMapping("/parameters/countries")
 	public String save(Country country) {
 
 		System.out.println(country);
 		countryService.save(country);
-		return "redirect:/countries";
+		return "redirect:/parameters/countries";
 	}
 
 	// Delete
-	@RequestMapping(value = "/countries/delete/{id}", method = { RequestMethod.GET, RequestMethod.DELETE })
+	@RequestMapping(value = "/parameters/countries/delete/{id}", method = { RequestMethod.GET, RequestMethod.DELETE })
 	public String delete(@PathVariable Integer id) {
 		countryService.delete(id);
 
-		return "redirect:/countries";
+		return "redirect:/parameters/countries";
 	}
 
 	// Go to Edit page
-	@GetMapping("/parameters/country/Edit/{id}")
-	public String editCountry(@PathVariable Integer id, Model model) {
+	@GetMapping("/parameters/country/{op}/{id}")
+	public String editCountry(@PathVariable Integer id,@PathVariable String op, Model model) {
 		Country country = countryService.getById(id);
 
 		model.addAttribute("country", country);
 
-		return "parameters/countryEdit";
+		return "parameters/country" + op;
 	}
 
-	// Go to Details page
-	@GetMapping("/countryDetails/{id}")
-	public String detailCountry(@PathVariable Integer id, Model model) {
-		Country country = countryService.getById(id);
-
-		model.addAttribute("country", country);
-
-		return "parameters/countryDetails";
-	}
 
 }
