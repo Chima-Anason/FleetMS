@@ -79,6 +79,52 @@
 	</div>
 	
 	</section>
+	
+	
+	
+	<!-- Location List table -->
+	<section class="section dashboard">
+		<div class="container" style="width : 100%">
+		
+		<div class="col-lg-10">
+          <div class="card ">
+            <div class="card-body">
+              <!-- title -->
+              <h5 class="card-title " th:text="'List of Locations in State ' + ${state.name}"></h5>
+
+             <div class="card top-selling overflow-auto">
+				<div class="card-body pb-0">
+				<br/>
+
+					<table class="table table-borderless">
+						<thead>
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">City</th>
+								<th scope="col">Address</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="location: ${state.locations}">
+								<td scope="col">#</td>
+								<td th:text="${location.city}"></td>
+								<td th:text="${location.address}"></td>
+								
+							</tr>
+
+						</tbody>
+					</table>
+
+				</div>
+
+			</div>
+
+            </div>
+          </div>
+        </div>
+	</div> <!-- End -->
+	
+	</section>
 		
 		</div>
 

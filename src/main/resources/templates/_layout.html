@@ -285,7 +285,7 @@
       <!-- === Fleet === -->
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Fleet</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bx bxs-car-mechanic"></i><span>Fleet</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -300,7 +300,7 @@
       <!-- === HR === -->
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>HR</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-file-earmark-person-fill"></i><span>HR</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -314,7 +314,7 @@
       <!-- === Accounts === -->
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Accounts</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-credit-card-fill"></i><span>Accounts</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -329,7 +329,7 @@
       <!-- === Payroll === -->
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-bar-chart"></i><span>Payroll</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-currency-exchange"></i><span>Payroll</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -344,7 +344,7 @@
       <!-- === Help Desk === -->
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#helpdesk-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-gem"></i><span>Help Desk</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-wallet-fill"></i><span>Help Desk</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="helpdesk-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -359,7 +359,7 @@
        <!-- === Settings === -->     
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#settings-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-gem"></i><span>Parameters</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bx bxs-cog"></i><span>Parameters</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="settings-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -376,7 +376,7 @@
       <!-- === Report === -->
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#reports-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-gem"></i><span>Report</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bx bx-notepad"></i><span>Report</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="reports-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -391,7 +391,7 @@
        <!-- === Security === -->     
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#security-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-gem"></i><span>Security</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bx bx-key"></i><span>Security</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="security-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
@@ -440,6 +440,7 @@
   </footer><!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  
 
   <!-- Vendor JS Files -->
   <script th:src="@{/assets/vendor/apexcharts/apexcharts.min.js}"></script>
@@ -453,6 +454,12 @@
 
   <!-- Template Main JS File -->
   <script th:src="@{/assets/js/main.js}"></script>
+  
+  <!-- CDN Files -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  
+  <!-- Custom Script -->
+  <th:block layout:fragment="script"></th:block>
 
 </body>
 

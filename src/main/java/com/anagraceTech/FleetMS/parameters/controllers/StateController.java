@@ -87,18 +87,6 @@ public class StateController {
 		
 		
 		
-		//Go to Details page
-		@GetMapping("/stateDetails/{id}")
-		public String detailState(@PathVariable Integer id, Model model) {
-			State state = stateService.getById(id);
-			
-			model.addAttribute("state", state);
-			
-			return "parameters/stateDetails";
-		}
-		
-		
-		
 		
 	
 	
