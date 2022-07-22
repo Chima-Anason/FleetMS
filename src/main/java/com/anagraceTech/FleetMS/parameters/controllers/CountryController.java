@@ -2,6 +2,8 @@ package com.anagraceTech.FleetMS.parameters.controllers;
 
 import java.util.List;
 
+import javax.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,8 +33,29 @@ public class CountryController {
 			countries = countryService.getAll();
 		}else {
 			countries = countryService.findByKeyword(keyword);
+			if(countries.isEmpty()) {
+				countries = null;
+				System.out.println(countries);
+			}
 		}
 
+		model.addAttribute("countries", countries);
+		model.addAttribute("searchAction", "/parameters/countries");
+
+		return "parameters/countries";
+	}
+	
+	// Fetch all countries with Sort
+	@GetMapping("/parameters/countries/{field}")
+	public String getAllWithSort(Model model, 
+								@PathVariable("field") String field, 
+								@PathParam("sortDir") String sortDir) {
+		
+
+		List<Country> countries = countryService.findAllWithSort(field, sortDir);
+ 
+		model.addAttribute("sortDir", sortDir);
+	    model.addAttribute("reverseSortDir", sortDir.equals("asc") ? "desc" : "asc");
 		model.addAttribute("countries", countries);
 		model.addAttribute("searchAction", "/parameters/countries");
 

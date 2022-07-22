@@ -37,15 +37,20 @@
 					<table class="table table-borderless">
 						<thead>
 							<tr>
-								<th scope="col">Description</th>
-								<th scope="col">Capital</th>
-								<th scope="col">Code</th>
-								<th scope="col">Nationality</th>
-								<th scope="col">Continent</th>
+								<th scope="col"><a th:href="@{'/parameters/countries/description?sortDir=' + ${reverseSortDir}}"><i class="bi bi-arrow-down-up me-2"></i></a>Description</th>
+								
+								<th scope="col"><a th:href="@{'/parameters/countries/capital?sortDir=' + ${reverseSortDir}}"><i class="bi bi-arrow-down-up me-2"></i></a>Capital</th>
+								<th scope="col"><a th:href="@{'/parameters/countries/code?sortDir=' + ${reverseSortDir}}"><i class="bi bi-arrow-down-up me-2"></i></a>Code</th>
+								<th scope="col"><a th:href="@{'/parameters/countries/nationality?sortDir=' + ${reverseSortDir}}"><i class="bi bi-arrow-down-up me-2"></i></a>Nationality</th>
+								<th scope="col"><a th:href="@{'/parameters/countries/continent?sortDir=' + ${reverseSortDir}}"><i class="bi bi-arrow-down-up me-2"></i></a>Continent</th>
 								<th scope="col">Action</th>
 							</tr>
 						</thead>
 						<tbody>
+<!-- 							If there is no data in the table(countires array == null) display this row(No search query) -->
+   						   <tr th:if="${countries} == null"><td class="dataTables-empty" colspan="6" >No search query</td></tr> 
+   						   
+<!-- 							Else display all the data -->
 							<tr th:each="country: ${countries}">
 								<td th:text="${country.description}"></td>
 								<td th:text="${country.capital}"></td>
@@ -68,7 +73,7 @@
 										<i class="bx bxs-trash"></i>
 									</a>
 								</td>
-							</tr>
+							</tr> 
 
 						</tbody>
 					</table>

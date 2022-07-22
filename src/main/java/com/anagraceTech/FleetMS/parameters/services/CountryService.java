@@ -3,6 +3,7 @@ package com.anagraceTech.FleetMS.parameters.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.anagraceTech.FleetMS.parameters.models.Country;
@@ -36,6 +37,14 @@ public class CountryService {
 	
 	public List<Country> findByKeyword(String keyword) {
 		return countryRepository.findByKeyword(keyword);
+	}
+	
+	public List<Country> findAllWithSort(String field, String direction) {
+		//Asc or Desc
+		Sort sort = direction.equalsIgnoreCase(Sort.Direction.ASC.name()) ?
+                Sort.by(field).ascending() : Sort.by(field).descending();
+		
+		return countryRepository.findAll(sort);
 	}
 
 }
