@@ -9,12 +9,12 @@
 	<div layout:fragment="content">
 	
 		<div class="pagetitle">
-	      <h1><b>Vehicle Types</b></h1>
+	      <h1><b>Vehicle Models</b></h1>
 	      <nav>
 	        <ol class="breadcrumb">
 	          <li class="breadcrumb-item"><a href="/index"><i class="bi bi-house-door"></i></a></li>
 	          <li class="breadcrumb-item"><a href="/fleet">Fleet</a></li>
-	          <li class="breadcrumb-item active">Vehicle Types</li>
+	          <li class="breadcrumb-item active">Vehicle Models</li>
 	        </ol>
 	      </nav>
 	    </div><!-- End Page Title -->
@@ -30,7 +30,7 @@
 <!-- 							<h5 class="card-title "></h5> -->
 
 							<!-- Vertical Form -->
-							<form class="row g-3 align-items-center" th:action="@{/fleet/vehicleTypes}" method="post">
+							<form class="row g-3 align-items-center" th:action="@{/fleet/vehicleModels}" method="post">
 							
 								<input type="hidden" id="txtId" name="id"/>
 
@@ -70,7 +70,7 @@
 
 				<div class="card-body pb-0">
 					<h5 class="card-title">
-						List of Vehicle Types
+						List of Vehicle Models
 					</h5>
 
 					<table class="table table-borderless">
@@ -83,10 +83,10 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr th:each="vehicleType: ${vehicleTypes}">
+							<tr th:each="vehicleModel: ${vehicleModels}">
 								<td scope="col"><i class="bx bxs-car"></i></td>
-								<td th:text="${vehicleType.description}"></td>
-								<td th:text="${vehicleType.details}"></td>
+								<td th:text="${vehicleModel.description}"></td>
+								<td th:text="${vehicleModel.details}"></td>
 								<td>
 <!-- 									<a type="button" class="btn-sm btn-primary" -->
 <!-- 										th:href="@{'/fleet/vehicleType/'+${vehicleType.id}}"> -->
@@ -94,12 +94,12 @@
 <!-- 									</a> -->
 									
 									<a id="display" type="button" class="btn-sm btn-success"
-										th:href="@{'/fleet/vehicleType/'+${vehicleType.id}}">
+										th:href="@{'/fleet/vehicleModel/'+${vehicleModel.id}}">
 										<i class="bx bxs-edit"></i>
 									</a>
 									<a type="button" class="btn-sm btn-danger"
 										onclick="return confirm('Are you sure you want to delete this record?')"
-										th:href="@{'/fleet/vehicleTypes/delete/'+${vehicleType.id}}">
+										th:href="@{'/fleet/vehicleModels/delete/'+${vehicleModel.id}}">
 										<i class="bx bxs-trash"></i>
 									</a>
 								</td>
@@ -123,10 +123,10 @@
             $('.table #display').on('click', function (event) {
                 event.preventDefault();
                 var href = $(this).attr('href');
-                $.get(href, function (vehicleType, status) {
-                    $('#txtId').val(vehicleType.id);
-                    $('#txtDescription').val(vehicleType.description);
-                    $('#txtDetails').val(vehicleType.details);
+                $.get(href, function (vehicleModel, status) {
+                    $('#txtId').val(vehicleModel.id);
+                    $('#txtDescription').val(vehicleModel.description);
+                    $('#txtDetails').val(vehicleModel.details);
                 })
             })
         })
