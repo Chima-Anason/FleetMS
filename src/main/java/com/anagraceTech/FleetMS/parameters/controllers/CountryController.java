@@ -23,11 +23,18 @@ public class CountryController {
 
 	// Fetch all countries
 	@GetMapping("/parameters/countries")
-	public String getAll(Model model) {
+	public String getAll(Model model, String keyword) {
 
-		List<Country> countries = countryService.getAll();
+		List<Country> countries;
+		
+		if(keyword==null) {
+			countries = countryService.getAll();
+		}else {
+			countries = countryService.findByKeyword(keyword);
+		}
 
 		model.addAttribute("countries", countries);
+		model.addAttribute("searchAction", "/parameters/countries");
 
 		return "parameters/countries";
 	}

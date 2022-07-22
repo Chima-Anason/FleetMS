@@ -33,5 +33,9 @@ public class SupplierService {
 	public Supplier getById(Integer id) {
         return supplierRepository.findById(id).orElse(null);
     }
+	
+	public List<Supplier> findByKeyword(String keyword) {
+		return supplierRepository.findByKeyword(keyword);
+	}
 
 }

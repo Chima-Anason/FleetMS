@@ -1,5 +1,7 @@
 package com.anagraceTech.FleetMS.parameters.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,8 +39,18 @@ public class ClientController {
 	
 	//Fetch all 
 	@GetMapping("/parameters/clients")
-	public String getAll(Model model) {
-		addModelAttribute(model);
+	public String getAll(Model model, String keyword) {
+		
+		List<Client> clients = clientService.getAll();
+		
+		if(keyword==null) {
+			addModelAttribute(model);
+		}else {
+			clients = clientService.findByKeyword(keyword);
+		}
+		
+		model.addAttribute("clients", clients);
+		model.addAttribute("searchAction", "/parameters/clients");
 		
 		return "parameters/clients";
 	}

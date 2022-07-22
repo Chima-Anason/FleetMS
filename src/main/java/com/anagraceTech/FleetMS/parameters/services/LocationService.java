@@ -33,5 +33,9 @@ public class LocationService {
 	public Location getById(Integer id) {
         return locationRepository.findById(id).orElse(null);
     }
+	
+	public List<Location> findByKeyword(String keyword) {
+		return locationRepository.findByKeyword(keyword);
+	}
 
 }

@@ -1,5 +1,7 @@
 package com.anagraceTech.FleetMS.parameters.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,8 +39,17 @@ public class LocationController {
 	
 	//Fetch all
 	@GetMapping("/parameters/locations")
-	public String getAll(Model model) {
-		addModelAttribute(model);
+	public String getAll(Model model, String keyword) {
+		
+		List<Location> locations = locationService.getAll();
+		if(keyword == null) {
+			addModelAttribute(model);
+		}else {
+			locations = locationService.findByKeyword(keyword);
+		}
+		
+		model.addAttribute("locations", locations);
+		model.addAttribute("searchAction", "/parameters/locations");
 		
 		return "parameters/locations";
 	}
