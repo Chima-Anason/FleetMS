@@ -37,7 +37,7 @@
 					<table class="table table-borderless">
 						<thead>
 							<tr>
-								<th scope="col">#</th>
+								<th scope="col"></th>   
 								<th scope="col">City</th>
 								<th scope="col">Address</th>
 								<th scope="col">Action</th>
@@ -45,7 +45,7 @@
 						</thead>
 						<tbody>
 							<tr th:each="location: ${locations}">
-								<td scope="col">#</td>
+								<td scope="col"><i class="bi bi-geo-alt"></i></td>
 								<td th:text="${location.city}"></td>
 								<td th:text="${location.address}"></td>
 								<td>

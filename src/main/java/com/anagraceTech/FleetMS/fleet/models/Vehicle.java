@@ -77,5 +77,198 @@ public class Vehicle {
 	private Location currentLocation;
 	private Integer locationid;
 	
-	private String remarks;	
+	private String remarks;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public VehicleType getVehicleType() {
+		return vehicleType;
+	}
+
+	public void setVehicleType(VehicleType vehicleType) {
+		this.vehicleType = vehicleType;
+	}
+
+	public Integer getVehicletypeid() {
+		return vehicletypeid;
+	}
+
+	public void setVehicletypeid(Integer vehicletypeid) {
+		this.vehicletypeid = vehicletypeid;
+	}
+
+	public String getVehicleNumber() {
+		return vehicleNumber;
+	}
+
+	public void setVehicleNumber(String vehicleNumber) {
+		this.vehicleNumber = vehicleNumber;
+	}
+
+	public Date getRegistrationDate() {
+		return registrationDate;
+	}
+
+	public void setRegistrationDate(Date registrationDate) {
+		this.registrationDate = registrationDate;
+	}
+
+	public Date getAcquisitionDate() {
+		return acquisitionDate;
+	}
+
+	public void setAcquisitionDate(Date acquisitionDate) {
+		this.acquisitionDate = acquisitionDate;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public VehicleMake getVehicleMake() {
+		return vehicleMake;
+	}
+
+	public void setVehicleMake(VehicleMake vehicleMake) {
+		this.vehicleMake = vehicleMake;
+	}
+
+	public Integer getVehiclemakeid() {
+		return vehiclemakeid;
+	}
+
+	public void setVehiclemakeid(Integer vehiclemakeid) {
+		this.vehiclemakeid = vehiclemakeid;
+	}
+
+	public String getPower() {
+		return power;
+	}
+
+	public void setPower(String power) {
+		this.power = power;
+	}
+
+	public String getFuelCapacity() {
+		return fuelCapacity;
+	}
+
+	public void setFuelCapacity(String fuelCapacity) {
+		this.fuelCapacity = fuelCapacity;
+	}
+
+	public VehicleStatus getVehicleStatus() {
+		return vehicleStatus;
+	}
+
+	public void setVehicleStatus(VehicleStatus vehicleStatus) {
+		this.vehicleStatus = vehicleStatus;
+	}
+
+	public Integer getVehiclestatusid() {
+		return vehiclestatusid;
+	}
+
+	public void setVehiclestatusid(Integer vehiclestatusid) {
+		this.vehiclestatusid = vehiclestatusid;
+	}
+
+	public String getNetWeight() {
+		return netWeight;
+	}
+
+	public void setNetWeight(String netWeight) {
+		this.netWeight = netWeight;
+	}
+
+	public Employee getInCharge() {
+		return inCharge;
+	}
+
+	public void setInCharge(Employee inCharge) {
+		this.inCharge = inCharge;
+	}
+
+	public Integer getEmployeeid() {
+		return employeeid;
+	}
+
+	public void setEmployeeid(Integer employeeid) {
+		this.employeeid = employeeid;
+	}
+
+	public VehicleModel getVehicleModel() {
+		return vehicleModel;
+	}
+
+	public void setVehicleModel(VehicleModel vehicleModel) {
+		this.vehicleModel = vehicleModel;
+	}
+
+	public Integer getVehiclemodelid() {
+		return vehiclemodelid;
+	}
+
+	public void setVehiclemodelid(Integer vehiclemodelid) {
+		this.vehiclemodelid = vehiclemodelid;
+	}
+
+	public Location getCurrentLocation() {
+		return currentLocation;
+	}
+
+	public void setCurrentLocation(Location currentLocation) {
+		this.currentLocation = currentLocation;
+	}
+
+	public Integer getLocationid() {
+		return locationid;
+	}
+
+	public void setLocationid(Integer locationid) {
+		this.locationid = locationid;
+	}
+
+	public String getRemarks() {
+		return remarks;
+	}
+
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
+	}
+
+	@Override
+	public String toString() {
+		return "Vehicle [id=" + id + ", name=" + name + ", vehicleType=" + vehicleType + ", vehicletypeid="
+				+ vehicletypeid + ", vehicleNumber=" + vehicleNumber + ", registrationDate=" + registrationDate
+				+ ", acquisitionDate=" + acquisitionDate + ", description=" + description + ", vehicleMake="
+				+ vehicleMake + ", vehiclemakeid=" + vehiclemakeid + ", power=" + power + ", fuelCapacity="
+				+ fuelCapacity + ", vehicleStatus=" + vehicleStatus + ", vehiclestatusid=" + vehiclestatusid
+				+ ", netWeight=" + netWeight + ", inCharge=" + inCharge + ", employeeid=" + employeeid
+				+ ", vehicleModel=" + vehicleModel + ", vehiclemodelid=" + vehiclemodelid + ", currentLocation="
+				+ currentLocation + ", locationid=" + locationid + ", remarks=" + remarks + "]";
+	}	
+	
+	
+	
+	
+	
 }
