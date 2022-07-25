@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" 
+	  xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{_layout.html}">
+      
+      
+<body>
+
+	<div layout:fragment="content">
+	
+	<div class="pagetitle">
+			<h1>Employee Detail</h1>
+			<nav>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="/index"><i
+							class="bi bi-house-door"></i></a></li>
+					 <li class="breadcrumb-item"><a href="/hr">HR</a></li>
+					<li class="breadcrumb-item"><a href="/hr/employees">Employees</a></li>
+					<li class="breadcrumb-item active">Detail</li>
+				</ol>
+			</nav>
+		</div><!-- End Page Title -->
+	    
+	    
+	    
+	
+	<section class="section dashboard">
+		<div class="container" style="width : 100%">
+		
+		<div class="col-lg-12">
+          <div class="card ">
+            <div class="card-body">
+
+              <!-- Vertical Form -->
+              	
+              	<form class="row g-3" th:action="@{/hr/employees}" th:object="${employee}" >
+              	
+              	<h5 class="card-title ">Edit Employee Record</h5>
+              	
+              	
+                  <input type="hidden" th:field="*{id}"/>
+                  
+                 <div class="col-6">
+                  <label for="ddlTitleEdit" class="form-label">Title</label>
+                  <div class="col-md-12">
+                  <select class="form-select" id="ddlTitleEdit" name="title" disabled>
+                     <option th:value="${null}">-SELECT-</option>
+                     <option value="Mr." th:selected="${employee.title} == 'Mr.'">Mr.</option>
+                     <option value="Ms." th:selected="${employee.title} == 'Ms.'">Ms.</option>
+                  </select>
+                </div>
+                </div>
+                
+                
+                <div class="col-6">
+                  <label for="initials" class="form-label">Initials</label>
+				  <div class="col-md-12">
+                  <input type="text" class="form-control" th:field="*{initials}" readonly>
+                  </div>
+                </div>
+                
+               
+                
+                <div class="col-6">
+                  <label for="firstname" class="form-label">Firstname</label>
+				  <div class="col-md-12">
+                  <input type="text" class="form-control" th:field="*{firstname}" readonly>
+                  </div>
+                </div>
+                
+                
+                <div class="col-6">
+                  <label for="lastname" class="form-label">Lastname</label>
+				  <div class="col-md-12">
+                  <input type="text" class="form-control" th:field="*{lastname}" readonly>
+                  </div>
+                </div>
+                
+                <div class="col-6">
+                  <label for="othername" class="form-label">Othername</label>
+				  <div class="col-md-12">
+                  <input type="text" class="form-control" th:field="*{othername}" readonly>
+                  </div>
+                </div>
+                
+                <div class="col-6">
+                  <label for="socialSecurityNumber" class="form-label">Social Security No.</label>
+				  <div class="col-md-12">
+                  <input type="text" class="form-control" th:field="*{socialSecurityNumber}" readonly>
+                  </div>
+                </div>
+                
+                
+                <div class="col-6">
+                  <label for="ddlGenderEdit" class="form-label">Gender</label>
+                  <div class="col-md-12">
+                  <select class="form-select" id="ddlGenderEdit" name="gender" disabled>
+                     <option th:value="${null}">-SELECT-</option>
+                     <option value="MALE" th:selected="${employee.gender} == 'MALE'">MALE</option>
+                     <option value="FEMALE" th:selected="${employee.gender} == 'FEMALE'">FEMALE</option>
+                  </select>
+                </div>
+                </div>
+                
+                <div class="col-6">
+                  <label for="ddlNationalityEdit" class="form-label">Nationality</label>
+                  <div class="col-md-12">
+                  <select id="ddlNationalityEdit" name="countryid" class="form-select" disabled>
+                    <option th:value="${null}">Choose...</option>
+                    <option th:each="country : ${countries}" 
+							th:value="${country.id}"
+                    		th:selected="${country.id}==${employee.countryid} ? True: False"
+                    		th:text="${country.description}">
+                    </option>
+                  </select>
+                </div>
+                </div>
+                
+                
+                 
+                
+                
+                 <div class="col-6">
+                  <label for="dateOfBirth" class="form-label">Date of Birth</label>
+				  <div class="col-md-12">
+                  <input type="date" class="form-control" th:field="*{dateOfBirth}" readonly>
+                  </div>
+                </div>
+                
+                
+                 <div class="col-6">
+                  <label for="hireDate" class="form-label">Hire Date</label>
+				  <div class="col-md-12">
+                  <input type="date" class="form-control" th:field="*{hireDate}" readonly>
+                  </div>
+                </div>
+                
+                
+                <div class="col-6">
+                  <label for="ddlStateEdit" class="form-label">State/Province</label>
+                  <div class="col-md-12">
+                  <select id="ddlStateEdit" name="stateid" class="form-select" disabled>
+                    <option th:value="${null}">Choose...</option>
+                    <option th:each="state : ${states}" 
+							th:value="${state.id}"
+                    		th:selected="${state.id}==${employee.stateid} ? True: False"
+                    		th:text="${state.name}">
+                    </option>
+                  </select>
+                </div>
+                </div>
+                
+                
+                <div class="col-6">
+                  <label for="city" class="form-label">City</label>
+				  <div class="col-md-12">
+                  <input type="text" class="form-control" th:field="*{city}" readonly>
+                  </div>
+                </div>
+                
+                
+                <div class="col-6">
+                  <label for="phone" class="form-label">Phone</label>
+				  <div class="col-md-12">
+                  <input type="text" class="form-control" th:field="*{phone}" readonly>
+                  </div>
+                </div>
+                
+                
+                <div class="col-6">
+                  <label for="mobile" class="form-label">Mobile</label>
+				  <div class="col-md-12">
+                  <input type="text" class="form-control" th:field="*{mobile}" readonly>
+                  </div>
+                </div>
+                
+                
+                
+                <div class="col-6">
+                  <label for="ddlMaritalStatusEdit" class="form-label">Marital Status</label>
+                  <div class="col-md-12">
+                  <select class="form-select" id="ddlMaritalStatusEdit" name="maritalStatus" disabled>
+                     <option th:value="${null}">-SELECT-</option>
+                     <option value="Married" th:selected="${employee.maritalStatus} == 'Married'">Married</option>
+                     <option value="Single" th:selected="${employee.maritalStatus} == 'Single'">Single</option>
+                  </select>
+                </div>
+                </div>
+                
+                
+                
+                <div class="col-6">
+                  <label for="email" class="form-label">Email</label>
+				  <div class="col-md-12">
+                  <input type="email" class="form-control" th:field="*{email}" readonly>
+                  </div>
+                </div>
+                
+                
+                <div class="col-6">
+                  <label for="ddlEmployeeTypeEdit" class="form-label">Employee Type</label>
+                  <div class="col-md-12">
+                  <select id="ddlEmployeeTypeEdit" name="employeetypeid" class="form-select" disabled>
+                    <option th:value="${null}">Choose...</option>
+                    <option th:each="employeeType : ${employeeTypes}" 
+							th:value="${employeeType.id}"
+                    		th:selected="${employeeType.id}==${employee.employeetypeid} ? True: False"
+                    		th:text="${employeeType.description}">
+                    </option>
+                  </select>
+                </div>
+                </div>
+                
+                <div class="col-6">
+                  <label for="username" class="form-label">Username</label>
+				  <div class="col-md-12">
+                  <input type="text" class="form-control" th:field="*{username}" readonly>
+                  </div>
+                </div>
+                
+                
+                <div class="col-6 ">
+				    <label for="fupImageEdit" class="form-label">Select Image</label>
+					<div class="col-md-12">
+					    <input class="form-control" type="file" id="fupImageEdit" name="photo" readonly>
+					</div>
+				</div>
+                
+            
+                
+                
+                <div class="col-6">
+                  <label for="address" class="form-label">Address</label>
+				  <div class="col-md-12">
+                  <textarea class="form-control" style="height: 100px;" rows="2" th:field="*{address}" readonly></textarea>
+                  </div>
+                </div>
+                
+                
+                
+                <div class="text-center">
+                  <button type="submit" class="btn btn-success">Save</button>
+                  <a href="/hr/employees" class="btn btn-warning">Exit</a>
+                </div>
+								
+              </form><!-- Vertical Form -->
+
+            </div>
+          </div>
+        </div>
+	</div>
+	
+	</section>
+		
+	</div>
+	
+
+</body>
+
+
+</html>

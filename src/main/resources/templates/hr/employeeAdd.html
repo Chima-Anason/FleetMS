@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{_layout.html}">
+
+
+<body>
+
+	<div layout:fragment="content">
+
+		<div class="pagetitle">
+			<h1>Add Employee</h1>
+			<nav>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="/index"><i
+							class="bi bi-house-door"></i></a></li>
+					 <li class="breadcrumb-item"><a href="/hr">HR</a></li>
+					<li class="breadcrumb-item"><a href="/hr/employees">Employees</a></li>
+					<li class="breadcrumb-item active">Add</li>
+				</ol>
+			</nav>
+		</div>
+		<!-- End Page Title -->
+
+		<section class="section dashboard">
+			<div class="container" style="width: 100%">
+
+				<div class="col-lg-12">
+					<div class="card ">
+						<div class="card-body">
+							<h5 class="card-title ">New Employee Record</h5>
+
+							<!-- Vertical Form -->
+							<form class="row g-3" th:action="@{/hr/employees}" method="post">
+
+								<div class="col-6">
+									<label for="ddlTitleAdd" class="form-label">Title</label>
+									<div class="col-md-12">
+										<select id="ddlTitleAdd" name="title"
+											class="form-select">
+											<option th:value="${null}">Choose...</option>
+											<option value="Mr.">Mr.</option>
+											<option value="Ms.">Ms.</option>
+										</select>
+									</div>
+								</div>
+								
+								<div class="col-6 ">
+				                  <label for="txtInitialAdd" class="form-label">Initials</label>
+				                  <div class="col-md-12">
+				                    <input type="text" class="form-control" id="txtInitialAdd" placeholder="Initials" name="initials">
+				                  </div>
+				                </div>
+				                
+				                
+				                
+				                
+				                
+				                <div class="col-6 ">
+				                  <label for="txtFirstnameAdd" class="form-label">Firstname</label>
+				                  <div class="col-md-12">
+				                    <input type="text" class="form-control" id="txtFirstnameAdd" placeholder="Firstname" name="firstname">
+				                  </div>
+				                </div>
+				                
+				                
+				                <div class="col-6 ">
+				                  <label for="txtLastnameAdd" class="form-label">Lastname</label>
+				                  <div class="col-md-12">
+				                    <input type="text" class="form-control" id="txtLastnameAdd" placeholder="Lastname" name="lastname">
+				                  </div>
+				                </div>
+				                
+				                
+				                
+				                <div class="col-6 ">
+				                  <label for="txtSSNAdd" class="form-label">Social Security No.</label>
+				                  <div class="col-md-12">
+				                    <input type="text" class="form-control" id="txtSSNAdd" placeholder="Social Security Number" name="socialSecurityNumber">
+				                  </div>
+				                </div>
+				                
+				                
+				                <div class="col-6 ">
+				                  <label for="txtOthernameAdd" class="form-label">Othername</label>
+				                  <div class="col-md-12">
+				                    <input type="text" class="form-control" id="txtOthernameAdd" placeholder="Othername" name="othername">
+				                  </div>
+				                </div>
+				                
+				                <div class="col-6">
+									<label for="ddlGenderAdd" class="form-label">Gender</label>
+									<div class="col-md-12">
+										<select id="ddlGenderAdd" name="gender"
+											class="form-select">
+											<option th:value="${null}">Choose...</option>
+											<option value="MALE">MALE</option>
+											<option value="FEMALE">FEMALE</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="col-6">
+									<label for="ddlNationalityAdd" class="form-label">Nationality</label>
+									<div class="col-md-12">
+										<select id="ddlNationalityAdd" name="countryid" class="form-select">
+											<option th:value="${null}">Choose...</option>
+											<option th:each="country : ${countries}" 
+													th:value="${country.id}"
+													th:text="${country.description}"></option>
+										</select>
+									</div>
+								</div>
+								
+								
+								
+								
+								<div class="col-6">
+									<label for="ddlEmployeeTypeAdd" class="form-label">Employee Type</label>
+									<div class="col-md-12">
+										<select id="ddlEmployeeTypeAdd" name="employeetypeid"
+											class="form-select">
+											<option th:value="${null}">Choose...</option>
+											<option th:each="employeeType : ${employeeTypes}"
+													th:value="${employeeType.id}" 
+													th:text="${employeeType.description}">
+											</option>
+										</select>
+									</div>
+								</div>
+								
+								
+								<div class="col-6 ">
+				                  <label for="txtDateOfBirthAdd" class="form-label">Date of Birth</label>
+				                  <div class="col-md-12">
+				                    <input type="date" class="form-control" id="txtDateOfBirthAdd" name="dateOfBirth">
+				                  </div>
+				                </div>
+				                
+				                
+				                <div class="col-6 ">
+				                  <label for="txtHireDateAdd" class="form-label">Hire Date</label>
+				                  <div class="col-md-12">
+				                    <input type="date" class="form-control" id="txtHireDateAdd" name="hireDate">
+				                  </div>
+				                </div>
+				                
+				                
+				                <div class="col-6">
+									<label for="ddlStateAdd" class="form-label">State/Province</label>
+									<div class="col-md-12">
+										<select id="ddlStateAdd" name="stateid" class="form-select">
+											<option th:value="${null}">Choose...</option>
+											<option th:each="state : ${states}" 
+													th:value="${state.id}"
+													th:text="${state.name}"></option>
+										</select>
+									</div>
+								</div>
+								
+								
+								<div class="col-6 ">
+				                  <label for="txtCityAdd" class="form-label">City</label>
+				                  <div class="col-md-12">
+				                    <input type="text" class="form-control" id="txtCityAdd" placeholder="City" name="city">
+				                  </div>
+				                </div>
+				                
+				                
+				                <div class="col-6 ">
+				                  <label for="txtPhoneAdd" class="form-label">Phone</label>
+				                  <div class="col-md-12">
+				                    <input type="text" class="form-control" id="txtPhoneAdd" placeholder="Phone" name="phone">
+				                  </div>
+				                </div>
+				                
+				                
+				                <div class="col-6 ">
+				                  <label for="txtMobileAdd" class="form-label">Mobile</label>
+				                  <div class="col-md-12">
+				                    <input type="text" class="form-control" id="txtMobileAdd" placeholder="Mobile" name="mobile">
+				                  </div>
+				                </div>
+				                
+				                
+				                <div class="col-6">
+									<label for="ddlMaritalStatusAdd" class="form-label">Marital Status</label>
+									<div class="col-md-12">
+										<select id="ddlMaritalStatusAdd" name="maritalStatus"
+											class="form-select">
+											<option th:value="${null}">Choose...</option>
+											<option value="Married">Married</option>
+											<option value="Single">Single</option>
+										</select>
+									</div>
+								</div>
+								
+								
+								<div class="col-6 ">
+				                  <label for="txtEmailAdd" class="form-label">Email</label>
+				                  <div class="col-md-12">
+				                    <input type="email" class="form-control" id="txtEmailAdd" placeholder="Email" name="email">
+				                  </div>
+				                </div>
+				                
+				                
+				                <div class="col-6">
+									<label for="ddlJobTitleAdd" class="form-label">Job Title</label>
+									<div class="col-md-12">
+										<select id="ddlJobTitleAdd" name="jobtitleid"
+											class="form-select">
+											<option th:value="${null}">Choose...</option>
+											<option th:each="jobTitle : ${jobTitles}"
+													th:value="${jobTitle.id}" 
+													th:text="${jobTitle.description}">
+											</option>
+										</select>
+									</div>
+								</div>
+								
+								
+								<div class="col-6 ">
+				                  <label for="txtUsernameAdd" class="form-label">Username</label>
+				                  <div class="col-md-12">
+				                    <input type="text" class="form-control" id="txtUsernameAdd" placeholder="Username" name="username">
+				                  </div>
+				                </div>
+								
+								
+								
+								<div class="col-6 ">
+				                  <label for="fupImageEdit" class="form-label">Select Image</label>
+				                  <div class="col-md-12">
+				                    <input class="form-control" type="file" id="fupImageEdit" name="photo">
+				                  </div>
+				                </div>
+				               
+
+							
+								
+				                
+				                <div class="col-6">
+								  <label for="txtAddressAdd" class="form-label">Address</label>
+								  <div class="col-md-12">
+			                      <textarea class="form-control" id="txtAddressAdd"  style="height: 100px;" name="address" rows="2"></textarea>
+			                      </div>
+			                    </div>
+								
+								
+								<div class="text-center">
+									<button type="submit" class="btn btn-success">Save</button>
+									<a href="/hr/employees" class="btn btn-warning">Exit</a>
+								</div>
+
+
+							</form>
+							<!-- Vertical Form -->
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</section>
+
+	</div>
+	
+	
+	<th:block layout:fragment="script">
+		<script>
+	        $('document').ready(function () { // Line 1
+	
+	            $('#ddlNationalityAdd').on('change',function () { // Line 2 (when you select a country)
+	                console.log("I got here!")
+	
+	                $('#ddlStateAdd').empty().append('<option value="null">Choose...</option>'); // Line 3 (Remove everything in the state to prevent appending other countries values)
+	
+	                var countryid = $(this).val(); //Line 4
+	
+	                var href = "http://localhost:8080/parameters/country/" + countryid //Line 5 (go to get country by id)
+	
+	                $.get(href, function (country, status) { // Line 6 (get the country)
+	
+	                    var states = country.states; // Line 7 (get the states out of the country)
+	
+	                    for (var i = 0; i <= states.length-1; i++) { // Line 8 (iterate through the state and append to select state )
+	                        $('#ddlStateAdd').append('<option value="' + states[i].id + '">' + states[i].name + '</option>'); // Line 9
+	                    }
+	                })
+	            })
+	
+	          })
+		  </script>
+	</th:block>
+
+
+</body>
+
+
+</html>
