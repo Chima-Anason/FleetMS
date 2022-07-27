@@ -12,8 +12,8 @@ import javax.persistence.ManyToOne;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.anagraceTech.FleetMS.parameters.models.Auditable;
 import com.anagraceTech.FleetMS.parameters.models.Supplier;
+import com.anagraceTech.FleetMS.security.models.Auditable;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 

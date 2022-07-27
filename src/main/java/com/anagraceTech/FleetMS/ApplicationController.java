@@ -6,13 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ApplicationController {
 
+//	@RequestMapping("/index")
+//	public String getIndexPage() {
+//
+//		return "index";
+//	}
 	
-	
-	@RequestMapping("/index")
-	public String getIndexPage() {
-
-		return "index";
-	}
 
 	@RequestMapping("/hr")
 	public String hr() {

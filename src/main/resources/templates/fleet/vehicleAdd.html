@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{_layout.html}">
+
+
+<body>
+
+	<div layout:fragment="content">
+
+		<div class="pagetitle">
+			<h1>Add Vehicle</h1>
+			<nav>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="/index"><i
+							class="bi bi-house-door"></i></a></li>
+					 <li class="breadcrumb-item"><a href="/fleet">Fleet</a></li>
+					<li class="breadcrumb-item"><a href="/fleet/vehicles">Vehicles</a></li>
+					<li class="breadcrumb-item active">Add</li>
+				</ol>
+			</nav>
+		</div>
+		<!-- End Page Title -->
+
+		<section class="section dashboard">
+			<div class="container" style="width: 100%">
+
+				<div class="col-lg-12">
+					<div class="card ">
+						<div class="card-body">
+							<h5 class="card-title ">New Vehicle Record</h5>
+
+							<!-- Vertical Form -->
+							<form class="row g-3" th:action="@{/fleet/vehicles}" method="post">
+							
+							<div class="col-6 ">
+				                  <label for="txtVehicleNameAdd" class="form-label">Vehicle Name</label>
+				                  <div class="col-md-12">
+				                    <input type="text" class="form-control" id="txtVehicleNameAdd" placeholder="Vehicle Name" name="name">
+				                  </div>
+				                </div>
+							
+							<div class="col-6">
+									<label for="ddlVehicleTypeAdd" class="form-label">Vehicle Type</label>
+									<div class="col-md-12">
+										<select id="ddlVehicleTypeAdd" name="vehicletypeid"
+											class="form-select">
+											<option th:value="${null}">Choose...</option>
+											<option th:each="vehicleType : ${vehicleTypes}"
+													th:value="${vehicleType.id}" 
+													th:text="${vehicleType.description}">
+											</option>
+										</select>
+									</div>
+								</div>
+								
+								
+								
+				                
+				                
+				                <div class="col-6 ">
+				                  <label for="txtVehicleNumberAdd" class="form-label">Vehicle Number</label>
+				                  <div class="col-md-12">
+				                    <input type="text" class="form-control" id="txtVehicleNumberAdd" placeholder="Vehicle Number" name="vehicleNumber">
+				                  </div>
+				                </div>
+				                
+				                
+				                
+				                <div class="col-6 ">
+				                  <label for="txtRegistrationDateAdd" class="form-label">Registration Date</label>
+				                  <div class="col-md-12">
+				                    <input type="date" class="form-control" id="txtRegistrationDateAdd" name="registrationDate">
+				                  </div>
+				                </div>
+				                
+				                
+				                <div class="col-6">
+									<label for="ddlEmployeeAdd" class="form-label">In Charge</label>
+									<div class="col-md-12">
+										<select id="ddlEmployeeAdd" name="employeeid"
+											class="form-select">
+											<option th:value="${null}">Choose...</option>
+											<option th:each="employee : ${employees}"
+													th:value="${employee.id}" 
+													th:text="${employee.firstname}">
+											</option>
+										</select>
+									</div>
+								</div>
+
+			                    
+			                    <div class="col-6 ">
+				                  <label for="txtAcquisitionDateAdd" class="form-label">Acquisition Date</label>
+				                  <div class="col-md-12">
+				                    <input type="date" class="form-control" id="txtAcquisitionDateAdd" name="acquisitionDate">
+				                  </div>
+				                </div>
+				                
+				                
+				                <div class="col-6">
+									<label for="ddlVehicleMakeAdd" class="form-label">Vehicle Make</label>
+									<div class="col-md-12">
+										<select id="ddlVehicleMakeAdd" name="vehiclemakeid"
+											class="form-select">
+											<option th:value="${null}">Choose...</option>
+											<option th:each="vehicleMake : ${vehicleMakes}"
+													th:value="${vehicleMake.id}" 
+													th:text="${vehicleMake.description}">
+											</option>
+										</select>
+									</div>
+								</div>
+								
+								<div class="col-6">
+									<label for="ddlVehicleModelAdd" class="form-label">Vehicle Model</label>
+									<div class="col-md-12">
+										<select id="ddlVehicleModelAdd" name="vehiclemodelid"
+											class="form-select">
+											<option th:value="${null}">Choose...</option>
+											<option th:each="vehicleModel : ${vehicleModels}"
+													th:value="${vehicleModel.id}" 
+													th:text="${vehicleModel.description}">
+											</option>
+										</select>
+									</div>
+								</div>
+								
+								
+								<div class="col-6 ">
+				                  <label for="txtPowerAdd" class="form-label">Power</label>
+				                  <div class="col-md-12">
+				                    <input type="text" class="form-control" id="txtPowerAdd" placeholder="Power(disel or fuel)" name="power">
+				                  </div>
+				                </div>
+				                
+				                
+				                <div class="col-6 ">
+				                  <label for="txtFuelCapacityAdd" class="form-label">Fuel Capacity</label>
+				                  <div class="col-md-12">
+				                    <input type="text" class="form-control" id="txtFuelCapacityAdd" placeholder="Fuel Capacity" name="fuelCapacity">
+				                  </div>
+				                </div>
+				                
+				                
+				                <div class="col-6 ">
+				                  <label for="txtNetWeightAdd" class="form-label">Net Weight</label>
+				                  <div class="col-md-12">
+				                    <input type="text" class="form-control" id="txtNetWeightAdd" placeholder="Net Weight" name="netWeight">
+				                  </div>
+				                </div>
+				                
+				                
+				                
+			                    
+			                    
+			                    
+								
+								
+								<div class="col-6">
+									<label for="ddlCurrentStatusAdd" class="form-label">Current Status</label>
+									<div class="col-md-12">
+										<select id="ddlCurrentStatusAdd" name="vehiclestatusid"
+											class="form-select">
+											<option th:value="${null}">Choose...</option>
+											<option th:each="vehicleStatus : ${vehicleStatuses}"
+													th:value="${vehicleStatus.id}" 
+													th:text="${vehicleStatus.description}">
+											</option>
+										</select>
+									</div>
+								</div>
+								
+								<div class="col-6">
+									<label for="ddlCurrentLocationAdd" class="form-label">Current Location</label>
+									<div class="col-md-12">
+										<select id="ddlCurrentLocationAdd" name="locationid"
+											class="form-select">
+											<option th:value="${null}">Choose...</option>
+											<option th:each="location : ${locations}"
+													th:value="${location.id}" 
+													th:text="${location.description}">
+											</option>
+										</select>
+									</div>
+								</div>
+								
+								
+								
+								<div class="col-6 ">
+				                  <label for="fupImageEdit" class="form-label">Select Image</label>
+				                  <div class="col-md-12">
+				                    <input class="form-control" type="file" id="fupImageEdit" name="photo">
+				                  </div>
+				                </div>
+				                
+				                
+				                
+								
+								<div class="col-6">
+								  <label for="txtDescriptionAdd" class="form-label">Description</label>
+								  <div class="col-md-12">
+			                      <textarea class="form-control" id="txtDescriptionAdd"  style="height: 100px;" name="description" rows="2"></textarea>
+			                      </div>
+			                    </div>
+			                    
+			                    
+			                    <div class="col-6">
+								  <label for="txtRemarksAdd" class="form-label">Remarks</label>
+								  <div class="col-md-12">
+			                      <textarea class="form-control" id="txtRemarksAdd"  style="height: 100px;" name="remarks" rows="2"></textarea>
+			                      </div>
+			                    </div>
+							
+								
+								
+								<div class="text-center">
+									<button type="submit" class="btn btn-success">Save</button>
+									<a href="/fleet/vehicles" class="btn btn-warning">Exit</a>
+								</div>
+
+
+							</form>
+							<!-- Vertical Form -->
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</section>
+
+	</div>
+	
+</body>
+
+
+</html>
