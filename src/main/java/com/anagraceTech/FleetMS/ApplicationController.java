@@ -53,4 +53,18 @@ public class ApplicationController {
 
 		return "/payroll/index";
 	}
+	
+	
+	@RequestMapping("/reports")
+	public String reports() {
+
+		return "/reports/index";
+	}
+	
+	
+	@RequestMapping("/security")
+	public String security() {
+
+		return "/security/index";
+	}
 }
