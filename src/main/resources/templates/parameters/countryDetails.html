@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" 
+	  xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{_layout.html}">
+      
+      
+<body>
+
+	<div layout:fragment="content">
+	
+	<section class="section dashboard">
+		<div class="container" style="width : 100%">
+		
+		<div class="col-lg-10">
+          <div class="card ">
+            <div class="card-body">
+              <h5 class="card-title ">Edit Country Record</h5>
+
+              <!-- Vertical Form -->
+              <form class="row g-3"  >
+              
+                <div class="col-12">
+                  <label for="description" class="form-label">Country Name</label>
+                  <input type="text" class="form-control" th:value="${country.description}" readonly>
+                </div>
+                <div class="col-12">
+                  <label for="capital" class="form-label">Capital</label>
+                  <input type="text" class="form-control" th:value="${country.capital}" readonly>
+                </div>
+                <div class="col-12">
+                  <label for="nationality" class="form-label">Nationality</label>
+                  <input type="text" class="form-control" th:value="${country.nationality}" readonly>
+                </div>
+                <div class="col-12">
+                  <label for="code" class="form-label">Code</label>
+                  <input type="text" class="form-control" th:value="${country.code}" readonly>
+                </div>
+                <div class="col-12">
+                  <label for="continent" class="form-label">Continent</label>
+                  <input type="text" class="form-control" th:value="${country.continent}" readonly>
+                </div>
+                <div class="text-center">
+                  <button type="submit" disabled class="btn btn-success">Save</button>
+                  <a href="/countries" class="btn btn-warning">Exit</a>
+                </div>
+              </form><!-- Vertical Form -->
+
+            </div>
+          </div>
+        </div>
+	</div>
+	
+	</section>
+		
+		</div>
+
+</body>
+
+
+</html>
