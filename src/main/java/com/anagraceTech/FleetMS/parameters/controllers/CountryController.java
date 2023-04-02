@@ -41,7 +41,7 @@ public class CountryController {
 
 	// Go to Add page
 	@GetMapping("/parameters/countryAdd")
-	public String addCountry() {
+	public String addPage() {
 
 		return "parameters/countryAdd";
 	}
@@ -63,9 +63,9 @@ public class CountryController {
 		return "redirect:/parameters/countries";
 	}
 
-	// Go to Edit page
+	// Go to Edit and Details page
 	@GetMapping("/parameters/country/{op}/{id}")
-	public String editCountry(@PathVariable Integer id,@PathVariable String op, Model model) {
+	public String editAndDetails(@PathVariable Integer id,@PathVariable String op, Model model) {
 		Country country = countryService.getById(id);
 
 		model.addAttribute("country", country);

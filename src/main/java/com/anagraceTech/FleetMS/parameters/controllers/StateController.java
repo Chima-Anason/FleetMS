@@ -37,7 +37,7 @@ public class StateController {
 	}
 	
 	
-	//Fetch all states
+	//Fetch all
 	@GetMapping("/parameters/states")
 	public String getAll(Model model) {
 		addModelAttribute(model);
@@ -48,7 +48,7 @@ public class StateController {
 	
 	//Go to Add page
 	@GetMapping("/parameters/stateAdd")
-	public String addState(Model model) {
+	public String addPage(Model model) {
 		addModelAttribute(model);
 		
 		return "parameters/stateAdd";
@@ -75,7 +75,7 @@ public class StateController {
 	
 	//Go to Edit/Detail page
 	@GetMapping("/parameters/state/{op}/{id}")
-	public String editState(@PathVariable Integer id, @PathVariable String op, Model model) {
+	public String editAndDetails(@PathVariable Integer id, @PathVariable String op, Model model) {
 		addModelAttribute(model);
 		State state = stateService.getById(id);
 		
