@@ -1,11 +1,14 @@
 package com.anagraceTech.FleetMS.parameters.models;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -35,6 +38,9 @@ public class State {
 	private Integer countryid;
 	
 	private String details;
+	
+	@OneToMany(mappedBy="state")
+	private List<Location> locations;
 
 	public Integer getId() {
 		return id;
@@ -90,6 +96,14 @@ public class State {
 
 	public void setDetails(String details) {
 		this.details = details;
+	}
+
+	public List<Location> getLocations() {
+		return locations;
+	}
+
+	public void setLocations(List<Location> locations) {
+		this.locations = locations;
 	}
 
 	@Override

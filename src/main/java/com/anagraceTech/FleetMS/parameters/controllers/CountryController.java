@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.anagraceTech.FleetMS.parameters.models.Country;
 import com.anagraceTech.FleetMS.parameters.services.CountryService;
@@ -19,71 +20,67 @@ public class CountryController {
 
 	@Autowired
 	private CountryService countryService;
-	
-	//Fetch all countries
+
+	// Fetch all countries
 	@GetMapping("/countries")
 	public String getAll(Model model) {
-		
+
 		List<Country> countries = countryService.getAll();
-		
+
 		model.addAttribute("countries", countries);
-		
+
 		return "parameters/countries";
 	}
-	
-	
-	//Go to Add page
+
+	// Get Country By Id
+	@GetMapping("/parameters/country/{id}")
+	@ResponseBody
+	public Country getById(@PathVariable Integer id) {
+		return countryService.getById(id);
+	}
+
+	// Go to Add page
 	@GetMapping("/countryAdd")
 	public String addCountry() {
-		
+
 		return "parameters/countryAdd";
 	}
-	
-	//Save
+
+	// Save
 	@PostMapping("/countries")
 	public String save(Country country) {
-		
+
 		System.out.println(country);
 		countryService.save(country);
 		return "redirect:/countries";
 	}
-	
-	
-	
-	//Delete
-	@RequestMapping(value = "/countries/delete/{id}", method = {RequestMethod.GET, RequestMethod.DELETE})
+
+	// Delete
+	@RequestMapping(value = "/countries/delete/{id}", method = { RequestMethod.GET, RequestMethod.DELETE })
 	public String delete(@PathVariable Integer id) {
 		countryService.delete(id);
-		
+
 		return "redirect:/countries";
 	}
-	
-	//Go to Edit page
+
+	// Go to Edit page
 	@GetMapping("/parameters/country/Edit/{id}")
 	public String editCountry(@PathVariable Integer id, Model model) {
 		Country country = countryService.getById(id);
-		
+
 		model.addAttribute("country", country);
-		
+
 		return "parameters/countryEdit";
 	}
-	
-		
-		
-		
-		//Go to Details page
-		@GetMapping("/countryDetails/{id}")
-		public String detailCountry(@PathVariable Integer id, Model model) {
-			Country country = countryService.getById(id);
-			
-			model.addAttribute("country", country);
-			
-			return "parameters/countryDetails";
-		}
-		
-		
-		
-		
-	
-	
+
+	// Go to Details page
+	@GetMapping("/countryDetails/{id}")
+	public String detailCountry(@PathVariable Integer id, Model model) {
+		Country country = countryService.getById(id);
+
+		model.addAttribute("country", country);
+
+		return "parameters/countryDetails";
+	}
+
 }

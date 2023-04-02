@@ -9,8 +9,6 @@
 
 	<div layout:fragment="content">
 	
-	<section class="section dashboard">
-	
 	<div class="pagetitle">
 	      <h1>Country Detail</h1>
 	      <nav>
@@ -21,7 +19,12 @@
 	          <li class="breadcrumb-item active">Detail</li>
 	        </ol>
 	      </nav>
-	    </div><!-- End Page Title -->
+	    </div><!-- End breadcrumb -->
+	    
+	    
+	<!-- Country Detail form --> 
+	<section class="section dashboard">
+	
 	
 		<div class="container" style="width : 100%">
 		
@@ -62,7 +65,55 @@
             </div>
           </div>
         </div>
-	</div>
+	</div> <!-- End of Country Detail form -->
+	
+	</section>
+	
+	
+	
+	<!-- State List table -->
+	<section class="section dashboard">
+		<div class="container" style="width : 100%">
+		
+		<div class="col-lg-10">
+          <div class="card ">
+            <div class="card-body">
+              <!-- title -->
+              <h5 class="card-title " th:text="'List of States in Country ' + ${country.description}"></h5>
+
+             <div class="card top-selling overflow-auto">
+				<div class="card-body pb-0">
+				<br/>
+
+					<table class="table table-borderless">
+						<thead>
+							<tr>
+								<th scope="col">Name</th>
+								<th scope="col">Capital</th>
+								<th scope="col">Code</th>
+								<th scope="col">Details</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="state: ${country.states}">
+								<td th:text="${state.name}"></td>
+								<td th:text="${state.capital}"></td>
+								<td th:text="${state.code}"></td>
+								<td th:text="${state.details}"></td>
+						
+							</tr>
+
+						</tbody>
+					</table>
+
+				</div>
+
+			</div>
+
+            </div>
+          </div>
+        </div>
+	</div> <!-- End of State table -->
 	
 	</section>
 		
