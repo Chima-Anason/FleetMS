@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" 
+	  xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{_layout.html}">
+      
+      
+<body>
+
+<div layout:fragment="content">
+	
+	<div class="pagetitle">
+	      <h1>Contact Detail</h1>
+	      <nav>
+	        <ol class="breadcrumb">
+	          <li class="breadcrumb-item"><a href="/index"><i class="bi bi-house-door"></i></a></li>
+	          <li class="breadcrumb-item"><a href="/parameters">Parameters</a></li>
+	          <li class="breadcrumb-item"><a href="/parameters/contacts">Contacts</a></li>
+	          <li class="breadcrumb-item active">Detail</li>
+	        </ol>
+	      </nav>
+	    </div><!-- End breadcrumb -->
+	    
+	    
+	<!-- Country Detail form --> 
+	<section class="section dashboard">
+	
+	
+		<div class="container" style="width : 100%">
+		
+		<div class="col-lg-10">
+          <div class="card ">
+            <div class="card-body">
+              <h5 class="card-title ">Contact Detail</h5>
+
+              <!-- Vertical Form -->
+              <form class="row g-3"  >
+              
+                <div class="col-12">
+                  <label for="description" class="form-label">Firstname</label>
+                  <input type="text" class="form-control" th:value="${contact.firstname}" readonly>
+                </div>
+                <div class="col-12">
+                  <label for="capital" class="form-label">Lastname</label>
+                  <input type="text" class="form-control" th:value="${contact.lastname}" readonly>
+                </div>
+                <div class="col-12">
+                  <label for="nationality" class="form-label">Email</label>
+                  <input type="text" class="form-control" th:value="${contact.email}" readonly>
+                </div>
+                <div class="col-12">
+                  <label for="code" class="form-label">Mobile</label>
+                  <input type="text" class="form-control" th:value="${contact.mobile}" readonly>
+                </div>
+                <div class="col-12">
+                  <label for="continent" class="form-label">Phone</label>
+                  <input type="text" class="form-control" th:value="${contact.phone}" readonly>
+                </div>
+                <div class="col-12">
+                  <label for="continent" class="form-label">Remarks</label>
+                  <input type="text" class="form-control" th:value="${contact.remarks}" readonly>
+                </div>
+                <div class="text-center">
+                  <button type="submit" disabled class="btn btn-success">Save</button>
+                  <a href="/parameters/contacts" class="btn btn-warning">Exit</a>
+                </div>
+              </form><!-- Vertical Form -->
+
+            </div>
+          </div>
+        </div>
+	</div> <!-- End of Country Detail form -->
+	
+	</section>
+		
+</div>
+
+</body>
+
+
+</html>

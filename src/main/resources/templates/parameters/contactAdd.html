@@ -10,12 +10,12 @@
 	<div layout:fragment="content">
 	
 	<div class="pagetitle">
-	      <h1>Add Country</h1>
+	      <h1>Add Contact</h1>
 	      <nav>
 	        <ol class="breadcrumb">
 	          <li class="breadcrumb-item"><a href="/index"><i class="bi bi-house-door"></i></a></li>
 	          <li class="breadcrumb-item"><a href="/parameters">Parameters</a></li>
-	          <li class="breadcrumb-item"><a href="/parameters/countries">Countries</a></li>
+	          <li class="breadcrumb-item"><a href="/parameters/contacts">Contacts</a></li>
 	          <li class="breadcrumb-item active">Add</li>
 	        </ol>
 	      </nav>
@@ -27,33 +27,37 @@
 		<div class="col-lg-10">
           <div class="card ">
             <div class="card-body">
-              <h5 class="card-title ">Add New Country Record</h5>
+              <h5 class="card-title ">Add New Contact Record</h5>
 
               <!-- Vertical Form -->
-              <form class="row g-3" th:action="@{/parameters/countries}" method="post">
+              <form class="row g-3" th:action="@{/parameters/contacts}" method="post">
                 <div class="col-12">
-                  <label for="description" class="form-label">Country Name</label>
-                  <input type="text" class="form-control" name="description">
+                  <label for="firstname" class="form-label">Firstname</label>
+                  <input type="text" class="form-control" name="firstname">
                 </div>
                 <div class="col-12">
-                  <label for="capital" class="form-label">Capital</label>
-                  <input type="text" class="form-control" name="capital">
+                  <label for="lastname" class="form-label">Lastname</label>
+                  <input type="text" class="form-control" name="lastname">
                 </div>
                 <div class="col-12">
-                  <label for="nationality" class="form-label">Nationality</label>
-                  <input type="text" class="form-control" name="nationality">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="text" class="form-control" name="email">
                 </div>
                 <div class="col-12">
-                  <label for="code" class="form-label">Code</label>
-                  <input type="text" class="form-control" name="code" >
+                  <label for="mobile" class="form-label">Mobile</label>
+                  <input type="text" class="form-control" name="mobile" >
                 </div>
                 <div class="col-12">
-                  <label for="continent" class="form-label">Continent</label>
-                  <input type="text" class="form-control" name="continent" >
+                  <label for="phone" class="form-label">Phone</label>
+                  <input type="text" class="form-control" name="phone" >
+                </div>
+                <div class="col-12">
+                  <label for="remarks" class="form-label">Remarks</label>
+                  <input type="text" class="form-control" name="remarks" >
                 </div>
                 <div class="text-center">
                   <button type="submit" class="btn btn-success">Save</button>
-                  <a href="/parameters/countries" class="btn btn-warning">Exit</a>
+                  <a href="/parameters/contacts" class="btn btn-warning">Exit</a>
                 </div>
               </form><!-- Vertical Form -->
 
