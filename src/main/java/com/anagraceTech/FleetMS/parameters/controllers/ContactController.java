@@ -23,11 +23,17 @@ public class ContactController {
 
 	// Fetch all 
 	@GetMapping("/parameters/contacts")
-	public String getAll(Model model) {
+	public String getAll(Model model, String keyword) {
 
-		List<Contact> contacts = contactService.getAll();
+		List<Contact> contacts;
+		if(keyword==null) {
+			contacts = contactService.getAll();
+		}else {
+			contacts = contactService.findByKeyword(keyword);
+		}
 
 		model.addAttribute("contacts", contacts);
+		model.addAttribute("searchAction", "/parameters/contacts");
 
 		return "parameters/contacts";
 	}

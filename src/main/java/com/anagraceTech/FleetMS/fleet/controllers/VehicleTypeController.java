@@ -1,5 +1,7 @@
 package com.anagraceTech.FleetMS.fleet.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,9 +23,18 @@ public class VehicleTypeController {
 
 	// Fetch all 
 	@GetMapping("/fleet/vehicleTypes")
-	public String getAll(Model model) {
+	public String getAll(Model model, String keyword) {
 
-		model.addAttribute("vehicleTypes", vehicleTypeService.getAll());
+		List<VehicleType> vehicleTypes;
+		
+		if(keyword==null) {
+			vehicleTypes = vehicleTypeService.getAll();
+		}else {
+			vehicleTypes = vehicleTypeService.findByKeyword(keyword);
+		}
+
+		model.addAttribute("vehicleTypes", vehicleTypes);
+		model.addAttribute("searchAction", "/fleet/vehicleTypes");
 
 		return "fleet/vehicleTypes";
 	}

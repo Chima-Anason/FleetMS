@@ -1,5 +1,7 @@
 package com.anagraceTech.FleetMS.parameters.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,8 +39,17 @@ public class SupplierController {
 	
 	//Fetch all 
 	@GetMapping("/parameters/suppliers")
-	public String getAll(Model model) {
-		addModelAttribute(model);
+	public String getAll(Model model, String keyword) {
+		
+		List<Supplier> suppliers;
+		if(keyword==null) {
+			suppliers = supplierService.getAll();
+		}else {
+			suppliers = supplierService.findByKeyword(keyword);
+		}
+
+		model.addAttribute("suppliers", suppliers);
+		model.addAttribute("searchAction", "/parameters/suppliers");
 		
 		return "parameters/suppliers";
 	}

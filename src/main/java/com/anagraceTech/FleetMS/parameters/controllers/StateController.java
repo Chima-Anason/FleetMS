@@ -39,8 +39,18 @@ public class StateController {
 	
 	//Fetch all
 	@GetMapping("/parameters/states")
-	public String getAll(Model model) {
-		addModelAttribute(model);
+	public String getAll(Model model, String keyword) {
+		
+		List<State> states = stateService.getAll();
+		
+		if(keyword==null) {
+			addModelAttribute(model);
+		}else {
+			states = stateService.findByKeyword(keyword);
+		}
+		
+		model.addAttribute("states", states);
+		model.addAttribute("searchAction", "/parameters/states");
 		
 		return "parameters/states";
 	}

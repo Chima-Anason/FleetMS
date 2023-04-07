@@ -33,5 +33,10 @@ public class ClientService {
 	public Client getById(Integer id) {
         return clientRepository.findById(id).orElse(null);
     }
+	
+	
+	public List<Client> findByKeyword(String keyword) {
+		return clientRepository.findByKeyword(keyword);
+	}
 
 }

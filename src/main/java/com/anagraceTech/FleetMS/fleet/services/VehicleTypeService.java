@@ -33,5 +33,9 @@ public class VehicleTypeService {
 	public VehicleType getById(Integer id) {
         return vehicleTypeRepository.findById(id).orElse(null);
     }
+	
+	public List<VehicleType> findByKeyword(String keyword) {
+		return vehicleTypeRepository.findByKeyword(keyword);
+	}
 
 }

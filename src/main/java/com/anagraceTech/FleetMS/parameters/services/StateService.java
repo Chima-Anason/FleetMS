@@ -33,5 +33,10 @@ public class StateService {
 	public State getById(Integer id) {
         return stateRepository.findById(id).orElse(null);
     }
+	
+	
+	public List<State> findByKeyword(String keyword) {
+		return stateRepository.findByKeyword(keyword);
+	}
 
 }

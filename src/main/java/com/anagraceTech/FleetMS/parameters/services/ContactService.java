@@ -33,5 +33,9 @@ public class ContactService {
 	public Contact getById(Integer id) {
         return contactRepository.findById(id).orElse(null);
     }
+	
+	public List<Contact> findByKeyword(String keyword) {
+		return contactRepository.findByKeyword(keyword);
+	}
 
 }
