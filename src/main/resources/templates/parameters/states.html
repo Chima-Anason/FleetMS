@@ -37,6 +37,7 @@
 					<table class="table table-borderless">
 						<thead>
 							<tr>
+								<th scope="col"></th> 
 								<th scope="col">Name</th>
 								<th scope="col">Capital</th>
 								<th scope="col">Code</th>
@@ -46,6 +47,7 @@
 						</thead>
 						<tbody>
 							<tr th:each="state: ${states}">
+								<td scope="col"><i class="bi bi-globe"></i></td>
 								<td th:text="${state.name}"></td>
 								<td th:text="${state.capital}"></td>
 								<td th:text="${state.code}"></td>
