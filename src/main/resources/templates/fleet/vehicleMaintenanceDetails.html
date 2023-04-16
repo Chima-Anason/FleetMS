@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" 
+	  xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{_layout.html}">
+      
+      
+<body>
+
+	<div layout:fragment="content">
+	
+	<div class="pagetitle">
+			<h1>Vehicle Maintenance Details</h1>
+			<nav>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="/index"><i
+							class="bi bi-house-door"></i></a></li>
+					 <li class="breadcrumb-item"><a href="/fleet">Fleet</a></li>
+					<li class="breadcrumb-item"><a href="/fleet/vehicleMaintenances">Vehicle Maintenances</a></li>
+					<li class="breadcrumb-item active">Details</li>
+				</ol>
+			</nav>
+		</div><!-- End Page Title -->
+	
+	<section class="section dashboard">
+		<div class="container" style="width : 100%">
+		
+		<div class="col-lg-12">
+          <div class="card ">
+            <div class="card-body">
+
+              <!-- Vertical Form -->
+              <form class="row g-3" >
+              	
+              	<h5 class="card-title ">Vehicle Maintenance Details Record</h5>
+              	
+              	
+                  <input type="hidden" th:field="*{id}"/>
+                  
+                 <div class="col-6">
+                  <label for="vehicleid" class="form-label">Vehicle</label>
+                  <div class="col-md-12">
+                  <select id="ddlVehicleAdd" name="vehicleid" class="form-select" disabled>
+                    <option selected>Choose...</option>
+                    <option th:each="vehicle : ${vehicles}"
+                    		th:value="${vehicle.id}"
+                    		th:selected="${vehicle.id}==${vehicleMaintenance.vehicleid} ? True: False"
+                    		th:text="${vehicle.name}">
+                    </option>
+                  </select>
+                </div>
+                </div>
+                
+                
+                 <div class="col-6">
+                  <label for="supplierid" class="form-label">Supplier</label>
+                  <div class="col-md-12">
+                  <select id="ddlSupplierAdd" name="supplierid" class="form-select" disabled>
+                    <option selected>Choose...</option>
+                    <option th:each="supplier : ${suppliers}" 
+							th:value="${supplier.id}"
+                    		th:selected="${supplier.id}==${vehicleMaintenance.supplierid} ? True: False"
+                    		th:text="${supplier.name}">
+                    </option>
+                  </select>
+                </div>
+                </div>
+
+                 
+                <div class="col-6">
+                  <label for="startDate" class="form-label">Start Date</label>
+				  <div class="col-md-12">
+                  <input type="text" class="form-control" th:value="${#dates.format(vehicleMaintenance.startDate, 'dd-MM-yyyy')}" readonly>
+                  </div>
+                </div>
+ 
+                
+                
+                <div class="col-6">
+                  <label for="endDate" class="form-label">End Date</label>
+				  <div class="col-md-12">
+                  <input type="text" class="form-control" th:value="${#dates.format(vehicleMaintenance.endDate, 'dd-MM-yyyy')}" readonly>
+                  </div>
+                </div>
+        
+                <div class="col-6">
+                  <label for="price" class="form-label">Price</label>
+                  <div class="col-md-12 input-group mb-3">
+					  <span class="input-group-text">$</span>
+	                  <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" th:value="${vehicleMaintenance.price}" readonly>
+	                  <span class="input-group-text">.00</span>
+			      </div>
+                </div>
+                
+                <div class="col-6">
+                  <label for="remarks" class="form-label">Remarks</label>
+				  <div class="col-md-12">
+                  <textarea class="form-control" style="height: 100px;" th:field="${vehicleMaintenance.remarks}" readonly></textarea>
+                  </div>
+                </div>
+                
+                
+                <div class="text-center">
+                  <a href="/fleet/vehicleMaintenances" class="btn btn-warning">Exit</a>
+                </div>
+								
+              </form><!-- Vertical Form -->
+
+            </div>
+          </div>
+        </div>
+	</div>
+	
+	</section>
+		
+		</div>
+
+</body>
+
+
+</html>
