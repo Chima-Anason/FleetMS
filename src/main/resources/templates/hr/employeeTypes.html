@@ -9,12 +9,12 @@
 	<div layout:fragment="content">
 	
 		<div class="pagetitle">
-	      <h1><b>Vehicle Status</b></h1>
+	      <h1><b>Employee Types</b></h1>
 	      <nav>
 	        <ol class="breadcrumb">
 	          <li class="breadcrumb-item"><a href="/index"><i class="bi bi-house-door"></i></a></li>
-	          <li class="breadcrumb-item"><a href="/fleet">Fleet</a></li>
-	          <li class="breadcrumb-item active">Vehicle Status</li>
+	          <li class="breadcrumb-item"><a href="/hr">HR</a></li>
+	          <li class="breadcrumb-item active">Employee Types</li>
 	        </ol>
 	      </nav>
 	    </div><!-- End Page Title -->
@@ -30,9 +30,11 @@
 <!-- 							<h5 class="card-title "></h5> -->
 
 							<!-- Vertical Form -->
-							<form class="row g-3 align-items-center" th:action="@{/fleet/vehicleStatuses}" method="post">
+							<form class="row g-3 align-items-center" th:action="@{/hr/employeeTypes}" method="post">
 							
-								<input  id="txtId" name="id" hidden/>
+								<div class="col-2">
+								<input id="txtId" name="id" hidden/>
+								</div>
 
 
 								<div class="col-4">
@@ -70,36 +72,36 @@
 
 				<div class="card-body pb-0">
 					<h5 class="card-title">
-						List of Vehicle Status
+						List of Employee Types
 					</h5>
 
 					<table class="table table-borderless">
 						<thead>
 							<tr>
-								<th scope="col"><i class="bx bxs-car"></i></th>     
+								<th scope="col"></th>     
 								<th scope="col">Description</th>
 								<th scope="col">Details</th>
 								<th scope="col">Action</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr th:each="vehicleStatus: ${vehicleStatuses}">
-								<td scope="col"><i class="bx bxs-car"></i></td>
-								<td th:text="${vehicleStatus.description}"></td>
-								<td th:text="${vehicleStatus.details}"></td>
+							<tr th:each="employeeType: ${employeeTypes}">
+								<td scope="col"><i class="bi bi-file-person"></i></td>
+								<td th:text="${employeeType.description}"></td>
+								<td th:text="${employeeType.details}"></td>
 								<td>
 <!-- 									<a type="button" class="btn-sm btn-primary" -->
-<!-- 										th:href="@{'/fleet/vehicleType/'+${vehicleType.id}}"> -->
+<!-- 										th:href="@{'/hr/vehicleType/'+${vehicleType.id}}"> -->
 <!-- 										<i class="bx bxs-low-vision"></i> -->
 <!-- 									</a> -->
 									
 									<a id="display" type="button" class="btn-sm btn-success"
-										th:href="@{'/fleet/vehicleStatus/'+${vehicleStatus.id}}">
+										th:href="@{'/hr/employeeType/'+${employeeType.id}}">
 										<i class="bx bxs-edit"></i>
 									</a>
 									<a type="button" class="btn-sm btn-danger"
 										onclick="return confirm('Are you sure you want to delete this record?')"
-										th:href="@{'/fleet/vehicleStatuses/delete/'+${vehicleStatus.id}}">
+										th:href="@{'/hr/employeeTypes/delete/'+${employeeType.id}}">
 										<i class="bx bxs-trash"></i>
 									</a>
 								</td>
@@ -123,10 +125,10 @@
             $('.table #display').on('click', function (event) {
                 event.preventDefault();
                 var href = $(this).attr('href');
-                $.get(href, function (vehicleStatus, status) {
-                    $('#txtId').val(vehicleStatus.id);
-                    $('#txtDescription').val(vehicleStatus.description);
-                    $('#txtDetails').val(vehicleStatus.details);
+                $.get(href, function (employeeType, status) {
+                    $('#txtId').val(employeeType.id);
+                    $('#txtDescription').val(employeeType.description);
+                    $('#txtDetails').val(employeeType.details);
                 })
             })
         })

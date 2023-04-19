@@ -17,6 +17,7 @@ import com.anagraceTech.FleetMS.fleet.services.VehicleModelService;
 import com.anagraceTech.FleetMS.fleet.services.VehicleService;
 import com.anagraceTech.FleetMS.fleet.services.VehicleStatusService;
 import com.anagraceTech.FleetMS.fleet.services.VehicleTypeService;
+import com.anagraceTech.FleetMS.hr.services.EmployeeService;
 import com.anagraceTech.FleetMS.parameters.services.LocationService;
 
 @Controller
@@ -28,7 +29,7 @@ public class VehicleController {
 	@Autowired private VehicleMakeService vehicleMakeService;
 	@Autowired private VehicleModelService vehicleModelService;
 	@Autowired private LocationService locationService;
-	//@Autowired private EmployeeService employeeService ;
+	@Autowired private EmployeeService employeeService ;
 	@Autowired private VehicleStatusService vehicleStatusService;
 	
 	
@@ -40,7 +41,7 @@ public class VehicleController {
 		model.addAttribute("vehicleModels", vehicleModelService.getAll());
 		model.addAttribute("vehicleMakes", vehicleMakeService.getAll());
 		model.addAttribute("locations", locationService.getAll());
-		//model.addAttribute("employees", employeeService.getAll());
+		model.addAttribute("employees", employeeService.findAll());
 		model.addAttribute("vehicleStatuses", vehicleStatusService.getAll());
 		return model;
 	}
