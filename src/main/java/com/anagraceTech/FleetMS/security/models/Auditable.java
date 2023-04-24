@@ -1,4 +1,4 @@
-package com.anagraceTech.FleetMS.parameters.models;
+package com.anagraceTech.FleetMS.security.models;
 
 import java.util.Date;
 
@@ -31,6 +31,9 @@ public abstract class Auditable<U> {
     @LastModifiedDate
     @Temporal(TIMESTAMP)
     protected Date lastModifiedDate;
+    
+    
+    
 
     public U getCreatedBy() {
         return createdBy;
